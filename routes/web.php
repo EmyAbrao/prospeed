@@ -22,11 +22,12 @@ use App\Http\Controllers\SessionTypeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-
+    //return view('welcome');
+    return view ('content.pages.pages-home');
 });
 Route::get('/prospeed', function() {
-    return view('prospeed');
+    //return view('prospeed');
+    return view ('content.pages.pages-home');
 });
 Route::get('prospeed/pilotos', [PilotController::class, 'listaPilotos']);
 Route::get('prospeed/pistas',[RaceTrackController::class, 'listaPistas']);
