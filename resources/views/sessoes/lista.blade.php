@@ -1,5 +1,5 @@
-@extends('prospeed')
-@section('conteudo-principal')
+@extends('layouts.layoutMaster')
+@section('content')
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">

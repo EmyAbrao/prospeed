@@ -7,31 +7,38 @@
       "slug": "pages-home"
     },
     {
-      "url": "page-2",
-      "icon": "menu-icon tf-icons ti ti-file",
-      "name": "Page 2",
-      "slug": "pages-page-2"
-    },
-    {
-      "url": "pages/misc-error",
-      "name": "Error",
-      "icon": "menu-icon tf-icons ti ti-alert-triangle",
-      "slug": "pages-misc-error",
-      "target": "_blank"
-    },
-    {
-      "url": "auth/login-basic",
-      "name": "Login",
-      "icon": "menu-icon tf-icons ti ti-login",
-      "slug": "auth-login-basic",
-      "target": "_blank"
-    },
-    {
-      "url": "auth/register-basic",
-      "name": "Register",
+      "url": "/prospeed/pilotos",
       "icon": "menu-icon tf-icons ti ti-user",
-      "slug": "auth-register-basic",
+      "name": "Pilotos",
+      "slug": "lista.pilotos"
+    },
+    {
+      "url": "/prospeed/carros",
+      "name": "Carros",
+      "icon": "menu-icon tf-icons ti ti-car",
+      "slug": "lista.carros",
+      "target": "_blank"
+    },
+    {
+      "url": "/prospeed/pistas",
+      "name": "Pistas",
+      "icon": "menu-icon tf-icons ti ti-location",
+      "slug": "lista.pista"
+    },
+    {
+      "url": "/prospeed/tipo-sessoes",
+      "name": "Modalidade",
+      "icon": "menu-icon tf-icons ti ti-crown",
+      "slug": "tipo-sessoes",
+      "target": "_blank"
+    },
+    {
+      "url": "/prospeed/sessoes",
+      "name": "Sessões",
+      "icon": "menu-icon tf-icons ti ti-flag",
+      "slug": "tipo-sessoes",
       "target": "_blank"
     }
+
   ]
 }
