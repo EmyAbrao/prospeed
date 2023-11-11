@@ -16,8 +16,7 @@
       "url": "/prospeed/carros",
       "name": "Carros",
       "icon": "menu-icon tf-icons ti ti-car",
-      "slug": "lista.carros",
-      "target": "_blank"
+      "slug": "lista.carros"
     },
     {
       "url": "/prospeed/pistas",
@@ -29,15 +28,13 @@
       "url": "/prospeed/tipo-sessoes",
       "name": "Modalidade",
       "icon": "menu-icon tf-icons ti ti-crown",
-      "slug": "tipo-sessoes",
-      "target": "_blank"
+      "slug": "tipo-sessoes"
     },
     {
       "url": "/prospeed/sessoes",
       "name": "Sessões",
       "icon": "menu-icon tf-icons ti ti-flag",
-      "slug": "tipo-sessoes",
-      "target": "_blank"
+      "slug": "tipo-sessoes"
     }
 
   ]

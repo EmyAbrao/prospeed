@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class SessionRace extends Model
 {
    protected $table = 'sessions';
    protected $fillable = ['car_id', 'pilot_id', 'event_id', 'racetrack_id', 'session_type_id'];
+   protected $date = ['created_at', 'updated_at'];
 
    public function pilot()
    {
