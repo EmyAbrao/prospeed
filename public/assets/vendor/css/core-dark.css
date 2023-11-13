@@ -2962,8 +2962,6 @@ textarea.form-control-lg {
   margin-left: 0.5em;
   vertical-align: middle;
   content: "";
-}
-.dropstart .dropdown-toggle::after {
   display: none;
 }
 .dropstart .dropdown-toggle::before {
@@ -17110,8 +17108,6 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
     margin-left: -11rem;
     margin-right: 0;
   }
-}
-@media (min-width: 1200px) {
   .layout-menu-collapsed.layout-menu-offcanvas .layout-menu {
     margin-right: -16.25rem;
     transform: translateX(-100%);
@@ -17121,8 +17117,6 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
     margin-left: -16.25rem;
     transform: translateX(100%);
   }
-}
-@media (min-width: 1200px) {
   .layout-menu-fixed .layout-menu,
   .layout-menu-fixed-offcanvas .layout-menu {
     position: fixed;
@@ -18236,7 +18230,6 @@ html:not(.layout-footer-fixed) .content-wrapper {
 }
 .timeline .timeline-item .timeline-event {
   position: relative;
-  top: -1rem;
   width: 100%;
   top: -1rem;
   min-height: 4rem;
@@ -18409,16 +18402,12 @@ html:not(.layout-footer-fixed) .content-wrapper {
     left: -2px;
   }
   .timeline.timeline-center .timeline-item {
-    border-right: 0 !important;
     left: 0rem;
     float: left !important;
     width: 100%;
     padding-left: 3rem !important;
     padding-right: 0 !important;
     border-right: 0 !important;
-  }
-  .timeline.timeline-center .timeline-item:not(:last-child) {
-    border-left: 1px solid #434968 !important;
   }
   .timeline.timeline-center .timeline-item:not(:last-child) {
     border-left: 1px solid #434968 !important;

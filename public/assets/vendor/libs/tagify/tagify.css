@@ -96,7 +96,6 @@
   content: none;
 }
 .tagify--loading .tagify__input::after {
-  content: "";
   vertical-align: middle;
   opacity: 1;
   width: 0.7em;
@@ -789,9 +788,6 @@
 
 .dark-style .tagify__tag > div::before {
   box-shadow: 0 0 0 1.1em rgba(168, 170, 174, 0.16) inset;
-}
-.dark-style .tagify__tag > div .tagify__tag-text {
-  color: #b6bee3;
 }
 .dark-style .tagify__tag > div .tagify__tag-text {
   color: #b6bee3;

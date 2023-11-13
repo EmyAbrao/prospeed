@@ -33,8 +33,6 @@
   background-size: 0.5em;
   border-radius: 0.15em;
   z-index: -1;
-}
-.pickr .pcr-button::before {
   z-index: initial;
 }
 .pickr .pcr-button::after {
@@ -222,12 +220,7 @@
 .pcr-app .pcr-interaction .pcr-save,
 .pcr-app .pcr-interaction .pcr-cancel,
 .pcr-app .pcr-interaction .pcr-clear {
-  color: #fff;
   width: auto;
-}
-.pcr-app .pcr-interaction .pcr-save,
-.pcr-app .pcr-interaction .pcr-cancel,
-.pcr-app .pcr-interaction .pcr-clear {
   color: #fff;
 }
 .pcr-app .pcr-interaction .pcr-save:hover,
@@ -409,8 +402,6 @@
   background-size: 0.5em;
   border-radius: 0.15em;
   z-index: -1;
-}
-.pickr .pcr-button::before {
   z-index: initial;
 }
 .pickr .pcr-button::after {
@@ -598,12 +589,7 @@
 .pcr-app .pcr-interaction .pcr-save,
 .pcr-app .pcr-interaction .pcr-cancel,
 .pcr-app .pcr-interaction .pcr-clear {
-  color: #fff;
   width: auto;
-}
-.pcr-app .pcr-interaction .pcr-save,
-.pcr-app .pcr-interaction .pcr-cancel,
-.pcr-app .pcr-interaction .pcr-clear {
   color: #fff;
 }
 .pcr-app .pcr-interaction .pcr-save:hover,
@@ -786,8 +772,6 @@
   background-size: 0.5em;
   border-radius: 0.15em;
   z-index: -1;
-}
-.pickr .pcr-button::before {
   z-index: initial;
 }
 .pickr .pcr-button::after {
@@ -975,12 +959,7 @@
 .pcr-app .pcr-interaction .pcr-save,
 .pcr-app .pcr-interaction .pcr-cancel,
 .pcr-app .pcr-interaction .pcr-clear {
-  color: #fff;
   width: auto;
-}
-.pcr-app .pcr-interaction .pcr-save,
-.pcr-app .pcr-interaction .pcr-cancel,
-.pcr-app .pcr-interaction .pcr-clear {
   color: #fff;
 }
 .pcr-app .pcr-interaction .pcr-save:hover,

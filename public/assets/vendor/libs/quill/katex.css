@@ -128,9 +128,6 @@
 
 .katex * {
   -ms-high-contrast-adjust: none !important;
-}
-
-.katex * {
   border-color: currentColor;
 }
 

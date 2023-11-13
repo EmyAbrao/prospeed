@@ -18,11 +18,7 @@
 .ti {
   vertical-align: middle;
   font-size: 1.25rem;
-  line-height: 1;
   display: inline-block;
-}
-
-.ti {
   font-family: "tabler-icons" !important;
   speak: none;
   font-style: normal;

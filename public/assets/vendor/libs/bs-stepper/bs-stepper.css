@@ -450,9 +450,6 @@ html:not([dir=rtl]).dark-style .bs-stepper.vertical .bs-stepper-header {
   [dir=rtl] .bs-stepper.wizard-icons .bs-stepper-header .line:before {
     margin-right: 0.75rem;
   }
-}
-
-@media (max-width: 991.98px) {
   .bs-stepper .bs-stepper-header {
     flex-direction: column;
     align-items: flex-start;

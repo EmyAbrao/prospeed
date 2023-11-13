@@ -104,14 +104,14 @@ $navbarDetached = ($navbarDetached ?? '');
                   <span class="align-middle">My Profile</span>
                 </a>
               </li>
-              @if (Auth::check() && Laravel\Jetstream\Jetstream::hasApiFeatures())
+              {{-- @if (Auth::check())
               <li>
                 <a class="dropdown-item" href="{{ route('api-tokens.index') }}">
                   <i class='ti ti-key me-2 ti-sm'></i>
                   <span class="align-middle">API Tokens</span>
                 </a>
               </li>
-              @endif
+              @endif --}}
               <li>
                 <a class="dropdown-item" href="javascript:void(0);">
                   <span class="d-flex align-items-center align-middle">
@@ -121,7 +121,7 @@ $navbarDetached = ($navbarDetached ?? '');
                   </span>
                 </a>
               </li>
-              @if (Auth::User() && Laravel\Jetstream\Jetstream::hasTeamFeatures())
+              {{-- @if (Auth::User() && Laravel\Jetstream\Jetstream::hasTeamFeatures())
               <li>
                 <div class="dropdown-divider"></div>
               </li>
@@ -144,8 +144,8 @@ $navbarDetached = ($navbarDetached ?? '');
                   <span class="align-middle">Create New Team</span>
                 </a>
               </li>
-              @endcan
-              @if (Auth::user()->allTeams()->count() > 1)
+              @endcan --}}
+              {{-- @if (Auth::user()->allTeams()->count() > 1)
               <li>
                 <div class="dropdown-divider"></div>
               </li>
@@ -161,12 +161,12 @@ $navbarDetached = ($navbarDetached ?? '');
               {{-- Below commented code read by artisan command while installing jetstream. !! Do not remove if you want to use jetstream. --}}
 
               {{-- <x-switchable-team :team="$team" /> --}}
-              @endforeach
+              {{-- @endforeach
               @endif
-              @endif
+              @endif --}}
               <li>
                 <div class="dropdown-divider"></div>
-              </li>
+              </li> --}}
               @if (Auth::check())
               <li>
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
