@@ -1,11 +1,11 @@
 <section class="space-y-6">
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {{ __('Delete Account') }}
+            {{ __('Excluir conta') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
+            {{ __('Depois que sua conta for excluída, todos os seus recursos e dados serão excluídos permanentemente.') }}
         </p>
     </header>
 
@@ -20,11 +20,11 @@
             @method('delete')
 
             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                {{ __('Are you sure you want to delete your account?') }}
+                {{ __('Você tem certeza que deseja excluir a sua conta?') }}
             </h2>
 
             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
+                {{ __('Depois que sua conta for excluída, todos os seus recursos e dados serão excluídos permanentemente. Digite sua senha para confirmar que deseja excluir permanentemente sua conta.') }}
             </p>
 
             <div class="mt-6">
@@ -49,6 +49,21 @@
                 <x-danger-button class="ml-3">
                     {{ __('Delete Account') }}
                 </x-danger-button>
+            </div>
+            <div class="flex items-center gap-4" style="margin-top: 20px">
+                {{-- <x-primary-button>{{ __('Save') }}</x-primary-button> --}}
+                <div class="row">
+                    <div class="col-2"> 
+                        <button type="submit" class="btn btn-outline-warning">Salvar</button>
+                    </div>
+                    <div class="col-10" style="align-content: center; align-items: center;">
+                        @if (session('status') === 'password-updated')
+                        <p x-data="{ show: true }" x-show="show" x-transition
+                            x-init="setTimeout(() => show = false, 2000)"
+                            class="text-sm text-gray-600 dark:text-gray-400">{{ __('Salvo.') }}</p>
+                        @endif 
+                    </div>
+                </div>
             </div>
         </form>
     </x-modal>

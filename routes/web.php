@@ -39,18 +39,15 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');    
+    Route::get('prospeed/pilotos', [PilotController::class, 'listaPilotos']);
+    Route::get('prospeed/pistas',[RaceTrackController::class, 'listaPistas']);
+    Route::get('prospeed/carros', [CarController::class, 'listaCarros']);
+    Route::get('prospeed/eventos', [EventController::class, 'listaEventos']);
+    Route::get('prospeed/sessoes', [SessionController::class, 'listaSessoes']);
+    Route::get('prospeed/tipo-sessoes', [SessionTypeController::class, 'listaTipoSessoes']);
+    Route::get('prospeed/pilotos/{id}/detalhes', [PilotController::class, 'detalhesPiloto'])->name('piloto.detalhes');
+    Route::get('prospeed/pilotos/{id}/editar', [PilotController::class, 'editarPiloto'])->name('piloto.editar');
 });
 
 require __DIR__.'/auth.php';
-
-
-Route::get('prospeed/pilotos', [PilotController::class, 'listaPilotos']);
-Route::get('prospeed/pistas',[RaceTrackController::class, 'listaPistas']);
-Route::get('prospeed/carros', [CarController::class, 'listaCarros']);
-Route::get('prospeed/eventos', [EventController::class, 'listaEventos']);
-Route::get('prospeed/sessoes', [SessionController::class, 'listaSessoes']);
-Route::get('prospeed/tipo-sessoes', [SessionTypeController::class, 'listaTipoSessoes']);
-Route::get('prospeed/pilotos/{id}/detalhes', [PilotController::class, 'detalhesPiloto']);
-Route::get('prospeed/pilotos/{id}/editar', [PilotController::class, 'editarPiloto']);
-
