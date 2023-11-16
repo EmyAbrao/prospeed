@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Pilot;
+// use Request;
 
 class ProfileController extends Controller
 {
@@ -27,14 +29,20 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $request->user()->fill($request->validated());
-
+        // recebe valor do front referente ao input name="phone"
+        $telefone = $request->input('phone');
+        // consulta no banco na tabela pilots onde user_id é igual ao usuário editado, na caso o primeiro 'first'
+        $pilot = Pilot::where('user_id', $request->user()->id)->first();
+        $pilot->phone = $telefone;
+        // dd($pilot);
+        $pilot->save();
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('editar.perfil')->with('status', 'profile-updated');
     }
 
     /**

@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Pilot extends Model
 {
     protected $table = 'pilots';
-    protected $fillable = ['name', 'email', 'phone', 'user_id'];
+    protected $fillable = ['phone', 'user_id'];
     
-    public function user(){
+    public function usuario(){
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 

@@ -48,7 +48,7 @@
           <div class=" d-flex align-items-center flex-column">
             <img class="img-fluid rounded mb-3 pt-1 mt-4" src="https://viverdeblog.com/wp-content/uploads/2017/03/ayrton-topo2.png" height="200" width="200" alt="User avatar" />
             <div class="user-info text-center">
-              <h4 class="mb-2">{{$piloto->name}}</h4>
+              <h4 class="mb-2">{{$piloto->usuario->name}}</h4>
               <span class="badge bg-label-secondary mt-1">Piloto</span>
             </div>
           </div>
@@ -78,7 +78,7 @@
             </li>
             <li class="mb-2 pt-1">
               <span class="fw-medium me-1">Email:</span>
-              <span>{{$piloto->email}}</span>
+              <span>{{$piloto->usuario->email}}</span>
             </li>
             <li class="mb-2 pt-1">
               <span class="fw-medium me-1">Status:</span>
@@ -96,7 +96,7 @@
           
           {{-- Botoes de editar e excluir - criar pagina de cadastro --}}
           <div class="d-flex justify-content-center">
-            <a href="javascript:;" class="btn btn-primary me-3" data-bs-target="#editUser" data-bs-toggle="modal">Editar</a>
+            <a href="{{route('editar.perfil')}}" class="btn btn-primary me-3">Editar</a>
             <a href="javascript:;" class="btn btn-label-danger suspend-user">Excluir</a>
           </div>
         </div>

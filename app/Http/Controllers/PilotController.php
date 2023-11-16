@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Pilot;
 use Illuminate\Http\Request;
+use App\Models\User;
+
 
 class PilotController extends Controller
 {
@@ -31,6 +33,9 @@ class PilotController extends Controller
    {
         $piloto = Pilot::find($id);
        // dd($piloto);
+       // dd($piloto->usuario);
+       // $userlogin = User::where('email', $piloto->email);
+       // dd($userlogin);
         return view('pilotos.detalhes')
             ->with('piloto', $piloto);
    }
@@ -71,7 +76,7 @@ class PilotController extends Controller
      */
     public function update(Request $request, Pilot $pilot)
     {
-        //
+        dd($request);
     }
 
     /**

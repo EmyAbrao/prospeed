@@ -23,8 +23,8 @@
       <tbody>
             @foreach ($pilotos as $pilot)
             <tr>
-                <td>{{$pilot->name}}</td>
-                <td>{{$pilot->email}}</td>
+                <td>{{isset($pilot->usuario->name) ? $pilot->usuario->name : 'Piloto não tem login cadastrado'}}</td>
+                <td>{{isset($pilot->usuario->email) ? $pilot->usuario->email : ''}}</td>
                 <td>{{$pilot->phone}}</td>
                 <td>
                     <a href="pilotos/{{$pilot->id}}/detalhes" title= "Detalhes do Piloto">

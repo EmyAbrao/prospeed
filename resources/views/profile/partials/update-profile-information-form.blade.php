@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="card mb-4">
-                    <h5 class="card-header">Editar Login</h5>
+                    <h5 class="card-header">Editar Usuário</h5>
                     <div class="card-body">
                         <div>
                             <x-input-label for="name" class="form-label" :value="__('Name')" />
@@ -24,6 +24,12 @@
                             <x-input-error class="form-text" :messages="$errors->get('name')" />
                         </div>
                         {{-- fim input name --}}
+                        <div>
+                            <x-input-label for="phone" class="form-label" :value="__('Telefone')" />
+                            <x-text-input id="phone" name="phone" type="text" class="form-control"
+                                :value="old('phone', $user->pilot->phone)" required autofocus autocomplete="phone" />
+                            <x-input-error class="form-text" :messages="$errors->get('phone')" />
+                        </div>
                         <div>
                             <x-input-label for="email" class="form-label" :value="__('Email')" />
                             <x-text-input id="email" name="email" type="email" class="form-control"
