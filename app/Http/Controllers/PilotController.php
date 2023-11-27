@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pilot;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 
 class PilotController extends Controller
@@ -85,8 +86,21 @@ class PilotController extends Controller
      * @param  \App\Models\Pilot  $pilot
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pilot $pilot)
+    public function destroy($id)
     {
-        //
+        DB::beginTransaction();
+        try{
+                $pilot = Pilot::findOrFail($id);
+                $pilot->delete();
+                $pilot->usuario()->delete();
+                DB::commit();
+                $msg = 'Sucesso ao excluir o piloto '. $pilot->usuario->name;
+                $class = 'success';
+                return redirect ('prospeed/pilotos');
+        } catch (\Exception $e) {
+            $msg = 'Erro ao excluir'. $e;
+            $class = 'danger';
+            return redirect ('prospeed/pilotos');
+        }
     }
 }

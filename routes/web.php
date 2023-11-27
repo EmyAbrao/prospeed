@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function () {
     Route::get('prospeed/tipo-sessoes', [SessionTypeController::class, 'listaTipoSessoes']);
     Route::get('prospeed/pilotos/{id}/detalhes', [PilotController::class, 'detalhesPiloto'])->name('piloto.detalhes');
     Route::get('prospeed/pilotos/{id}/editar', [PilotController::class, 'editarPiloto'])->name('piloto.editar');
+    Route::get('prospeed/pilotos/{id}/excluir', [PilotController::class, 'destroy'])->name('excluir.piloto');
 });
 
 require __DIR__.'/auth.php';
