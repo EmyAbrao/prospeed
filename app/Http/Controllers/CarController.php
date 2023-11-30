@@ -44,8 +44,11 @@ class CarController extends Controller
      * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function show(Car $car)
+    public function show($id)
     {
+        $car = Car::findOrFail($id);
+        return view('carros.detalhes')
+            ->with('carro', $car);
         //
     }
 
@@ -67,8 +70,12 @@ class CarController extends Controller
      * @param  \App\Models\Car  $car
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Car $car)
+    public function destroy($id)
     {
+        $car = Car::findOrFail($id);
+        $car->delete();
+        $msg = 'Sucesso ao excluir o carro '. $car->name;
+        return redirect ('prospeed/carros');     
         //
     }
 }

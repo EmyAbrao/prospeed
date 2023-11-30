@@ -66,8 +66,12 @@ class SessionTypeController extends Controller
      * @param  \App\Models\SessionType  $sessionType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SessionType $sessionType)
+    public function destroy($id)
     {
+        $tipoSessoes = SessionType::find($id);
+        $tipoSessoes->delete();
+        $msg = 'Sucesso ao deletar essa modalidade';
+        return redirect ('prospeed/tipo-sessoes');
         //
     }
 }

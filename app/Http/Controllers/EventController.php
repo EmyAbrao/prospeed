@@ -68,8 +68,12 @@ class EventController extends Controller
      * @param  \App\Models\EventRace  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EventRace $event)
+    public function destroy($id)
     {
+        $event = EventRace::findOrFail($id);
+        $event->delete();
+        $msg = 'Sucesso ao excluir o evento '. $event->name;
+        return redirect ('prospeed/eventos');
         //
     }
 }

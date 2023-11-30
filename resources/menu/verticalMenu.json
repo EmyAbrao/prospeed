@@ -35,7 +35,12 @@
       "name": "Sessões",
       "icon": "menu-icon tf-icons ti ti-flag",
       "slug": "tipo-sessoes"
+    },
+    {
+      "url": "/prospeed/eventos",
+      "name": "Eventos",
+      "icon": "menu-icon tf-icons ti ti-flag",
+      "slug": "lista.eventos"
     }
-
   ]
 }

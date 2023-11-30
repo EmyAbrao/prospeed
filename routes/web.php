@@ -49,6 +49,12 @@ Route::middleware('auth')->group(function () {
     Route::get('prospeed/pilotos/{id}/detalhes', [PilotController::class, 'detalhesPiloto'])->name('piloto.detalhes');
     Route::get('prospeed/pilotos/{id}/editar', [PilotController::class, 'editarPiloto'])->name('piloto.editar');
     Route::get('prospeed/pilotos/{id}/excluir', [PilotController::class, 'destroy'])->name('excluir.piloto');
+    Route::get('prospeed/carros/{id}/excluir', [CarController::class, 'destroy'])->name('excluir.carro');
+    Route::get('prospeed/eventos/{id}/excluir', [EventController::class, 'destroy'])->name('excluir.evento');
+    Route::get('prospeed/pistas/{id}/excluir', [RaceTrackController::class, 'destroy'])->name('ecluir.pista');
+    Route::get('prospeed/sessoes/{id}/excluir', [SessionController::class, 'destroy'])->name('excluir.sessao');
+    Route::get('prospeed/tipo-sessoes/{id}/excluir', [SessionTypeController::class, 'destroy'])->name('exluir.modalidade');
+    Route::get('prospeed/carros/{id}/detalhes', [CarController::class, 'show'])->name('carros.detalhes');
 });
 
 require __DIR__.'/auth.php';

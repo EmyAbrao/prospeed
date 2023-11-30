@@ -1,6 +1,6 @@
 @extends('layouts/layoutMaster')
 
-@section('title', 'Tables - Basic Tables')
+@section('title', 'Carros')
 
 @section('content')
 <h4 class="py-3 mb-4">

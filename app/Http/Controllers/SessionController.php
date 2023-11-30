@@ -67,8 +67,12 @@ class SessionController extends Controller
      * @param  \App\Models\SessionRace  $session
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Session $session)
+    public function destroy($id)
     {
+        $session = SessionRace::findOrFail($id);
+        $session->delete();
+        $msg = 'Sucesso ao deletar sessão';
+        return redirect ('prospeed/sessoes');
         //
     }
 }

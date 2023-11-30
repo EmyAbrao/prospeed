@@ -68,8 +68,12 @@ class RaceTrackController extends Controller
      * @param  \App\Models\RaceTrack  $raceTrack
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RaceTrack $raceTrack)
+    public function destroy($id)
     {
+        $raceTrack = RaceTrack::findOrFail($id);
+        $raceTrack->delete();
+        $msg = 'Sucesso ao deletar pista '. $raceTrack->name;
+        return redirect ('prospeed/pistas');
         //
     }
 }
