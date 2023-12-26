@@ -13,7 +13,7 @@ $configData = Helper::appClasses();
 
 @section('content')
 <h4 class="py-3 mb-4">
-  <span class="text-muted fw-light">ProSpeed /</span> Carros
+  <span class="text-muted fw-light">ProSpeed /</span> Carros - {{$carro->model}}
 </h4>
 <div class="d-flex flex-column justify-content-center align-items-center rounded">
   <img src="{{$carro->picture}}" alt="" width="90%">
@@ -25,11 +25,12 @@ $configData = Helper::appClasses();
     <div class="d-flex justify-content-between flex-column mb-2 mb-md-0">
       <ul class="nav nav-align-left nav-pills flex-column">
         <li class="nav-item">
-          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#payment">
+          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#detalhes">
             <i class="ti ti-credit-card me-1 ti-sm"></i>
-            <span class="align-middle fw-medium">Payment</span>
+            <span class="align-middle fw-medium">Detalhes de {{$carro->model}} </span>
           </button>
         </li>
+
         <li class="nav-item">
           <button class="nav-link" data-bs-toggle="tab" data-bs-target="#delivery">
             <i class="ti ti-briefcase me-1 ti-sm"></i>
@@ -67,7 +68,7 @@ $configData = Helper::appClasses();
   <!-- FAQ's -->
   <div class="col-lg-9 col-md-8 col-12">
     <div class="tab-content py-0">
-      <div class="tab-pane fade show active" id="payment" role="tabpanel">
+      <div class="tab-pane fade show active" id="detalhes" role="tabpanel">
         <div class="d-flex mb-3 gap-3">
           <div>
             <span class="badge bg-label-primary rounded-2 p-2">
@@ -76,86 +77,167 @@ $configData = Helper::appClasses();
           </div>
           <div>
             <h4 class="mb-0">
-              <span class="align-middle">Payment</span>
+              <span class="align-middle">Informações sobre o carro</span>
             </h4>
-            <small>Get help with payment</small>
+            <small>Informações reais</small>
           </div>
         </div>
-        <div id="accordionPayment" class="accordion">
-          <div class="card accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" aria-expanded="true" data-bs-target="#accordionPayment-1" aria-controls="accordionPayment-1">
-                When is payment taken for my order?
-              </button>
-            </h2>
-
-            <div id="accordionPayment-1" class="accordion-collapse collapse show">
-              <div class="accordion-body">
-                Payment is taken during the checkout process when you pay for
-                your order. The order number that appears on the confirmation
-                screen indicates payment has been successfully processed.
+        <h4 class="py-3 mb-4"><span class="text-muted fw-light"> Modelo do carro: {{$carro->model}} </span>
+        </h4>
+        <div class="row">
+          <!-- Statistics -->
+          <div class="col-lg-12 mb-4 col-md-12">
+            <div class="card h-100">
+              <div class="card-header d-flex justify-content-between">
+                <h5 class="card-title mb-0">Detalhes</h5>
+                <small class="text-muted">Estatísticas</small>
+              </div>
+              <div class="card-body pt-2">
+                <div class="row gy-3">
+                  <div class="col-md-3 col-6">
+                    <div class="d-flex align-items-center">
+                      <div class="badge rounded-pill bg-label-primary me-3 p-2"><i class="ti ti-chart-pie-2 ti-sm"></i></div>
+                      <div class="card-info">
+                        <h5 class="mb-0">{{$carro->info['cilindrada']}}</h5>
+                        <small>Cilindradas</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-6">
+                    <div class="d-flex align-items-center">
+                      <div class="badge rounded-pill bg-label-info me-3 p-2"><i class="ti ti-users ti-sm"></i></div>
+                      <div class="card-info">
+                        <h5 class="mb-0">{{$carro->info['potencia']}}</h5>
+                        <small>Potência</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-6">
+                    <div class="d-flex align-items-center">
+                      <div class="badge rounded-pill bg-label-danger me-3 p-2"><i class="ti ti-shopping-cart ti-sm"></i></div>
+                      <div class="card-info">
+                        <h5 class="mb-0">{{$carro->info['torque']}}</h5>
+                        <small>Torque</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-6">
+                    <div class="d-flex align-items-center">
+                      <div class="badge rounded-pill bg-label-success me-3 p-2"><i class="ti ti-currency-dollar ti-sm"></i></div>
+                      <div class="card-info">
+                        <h5 class="mb-0">{{$carro->info['transmissao']}}</h5>
+                        <small>Transmissão</small>
+                      </div>
+                    </div>
+                  </div>
+                  {{-- final da linha 1 --}}
+                  <div class="col-md-3 col-6">
+                    <div class="d-flex align-items-center">
+                      <div class="badge rounded-pill bg-label-primary me-3 p-2"><i class="ti ti-chart-pie-2 ti-sm"></i></div>
+                      <div class="card-info">
+                        <h5 class="mb-0">{{$carro->info['eletronica']}}</h5>
+                        <small>Eletrônica</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-6">
+                    <div class="d-flex align-items-center">
+                      <div class="badge rounded-pill bg-label-info me-3 p-2"><i class="ti ti-users ti-sm"></i></div>
+                      <div class="card-info">
+                        <h5 class="mb-0">Botão Bost</h5>
+                        <small>@if($carro->info['botao_bost'])Sim @else Não @endif</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-6">
+                    <div class="d-flex align-items-center">
+                      <div class="badge rounded-pill bg-label-danger me-3 p-2"><i class="ti ti-shopping-cart ti-sm"></i></div>
+                      <div class="card-info">
+                        <h5 class="mb-0">DRS</h5>
+                        <small>@if($carro->info['drs'])Sim @else Não @endif
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-6">
+                    <div class="d-flex align-items-center">
+                      <div class="badge rounded-pill bg-label-success me-3 p-2"><i class="ti ti-currency-dollar ti-sm"></i></div>
+                      <div class="card-info">
+                        <h5 class="mb-0">{{$carro->info['peso']}}</h5>
+                        <small>Peso</small>
+                      </div>
+                    </div>
+                  </div>
+                  {{-- final da linha 2 --}}
+                  <div class="col-md-3 col-6">
+                    <div class="d-flex align-items-center">
+                      <div class="badge rounded-pill bg-label-info me-3 p-2"><i class="ti ti-users ti-sm"></i></div>
+                      <div class="card-info">
+                        <h5 class="mb-0">Ajuste da barra onboard</h5>
+                        <small>@if($carro->info['ajuste_barra_onboard'])Sim @else Não @endif</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-6">
+                    <div class="d-flex align-items-center">
+                      <div class="badge rounded-pill bg-label-info me-3 p-2"><i class="ti ti-users ti-sm"></i></div>
+                      <div class="card-info">
+                        <h5 class="mb-0">Ajuste do freio onboard</h5>
+                        <small>@if($carro->info['ajuste_freio_onboard'])Sim @else Não @endif</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-6">
+                    <div class="d-flex align-items-center">
+                      <div class="badge rounded-pill bg-label-info me-3 p-2"><i class="ti ti-users ti-sm"></i></div>
+                      <div class="card-info">
+                        <h5 class="mb-0">Limitador de velocidade</h5>
+                        <small>@if($carro->info['limitador_velocidade'])Sim @else Não @endif</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-6">
+                    <div class="d-flex align-items-center">
+                      <div class="badge rounded-pill bg-label-success me-3 p-2"><i class="ti ti-currency-dollar ti-sm"></i></div>
+                      <div class="card-info">
+                        <h5 class="mb-0">{{$carro->info['distribuicao_peso']}}</h5>
+                        <small>Distribuição do peso</small>
+                      </div>
+                    </div>
+                  </div>
+                  {{-- final da linha 3 --}}
+                  <div class="col-md-3 col-6">
+                    <div class="d-flex align-items-center">
+                      <div class="badge rounded-pill bg-label-info me-3 p-2"><i class="ti ti-users ti-sm"></i></div>
+                      <div class="card-info">
+                        <h5 class="mb-0">Turbo ajustável</h5>
+                        <small>@if($carro->info['turbo_ajustavel'])Sim @else Não @endif</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-6">
+                    <div class="d-flex align-items-center">
+                      <div class="badge rounded-pill bg-label-info me-3 p-2"><i class="ti ti-users ti-sm"></i></div>
+                      <div class="card-info">
+                        <h5 class="mb-0">Faróis</h5>
+                        <small>@if($carro->info['farois'])Sim @else Não @endif</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-6">
+                    <div class="d-flex align-items-center">
+                      <div class="badge rounded-pill bg-label-success me-3 p-2"><i class="ti ti-currency-dollar ti-sm"></i></div>
+                      <div class="card-info">
+                        <h5 class="mb-0">{{$carro->info['distancia_eixo']}}</h5>
+                        <small>Distância do Eixo</small>
+                      </div>
+                    </div>
+                  </div>
+                  {{-- fim da linha 4 --}}
+                </div>
               </div>
             </div>
-          </div>
-
-          <div class="card accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionPayment-2" aria-controls="accordionPayment-2">
-                How do I pay for my order?
-              </button>
-            </h2>
-            <div id="accordionPayment-2" class="accordion-collapse collapse">
-              <div class="accordion-body">
-                We accept Visa®, MasterCard®, American Express®, and PayPal®.
-                Our servers encrypt all information submitted to them, so you
-                can be confident that your credit card information will be kept
-                safe and secure.
-              </div>
-            </div>
-          </div>
-
-          <div class="card accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionPayment-3" aria-controls="accordionPayment-3">
-                What should I do if I'm having trouble placing an order?
-              </button>
-            </h2>
-            <div id="accordionPayment-3" class="accordion-collapse collapse">
-              <div class="accordion-body">
-                For any technical difficulties you are experiencing with our
-                website, please contact us at our
-                <a href="javascript:void(0);">support portal</a>, or you can call us toll-free at
-                <span class="fw-medium">1-000-000-000</span>, or email us at
-                <a href="javascript:void(0);">order@companymail.com</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="card accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionPayment-4" aria-controls="accordionPayment-4">
-                Which license do I need for an end product that is only accessible to paying users?
-              </button>
-            </h2>
-            <div id="accordionPayment-4" class="accordion-collapse collapse">
-              <div class="accordion-body">
-                If you have paying users or you are developing any SaaS products then you need an Extended License.
-                For each products, you need a license. You can get free lifetime updates as well.
-              </div>
-            </div>
-          </div>
-
-          <div class="card accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionPayment-5" aria-controls="accordionPayment-5">
-                Does my subscription automatically renew?
-              </button>
-            </h2>
-            <div id="accordionPayment-5" class="accordion-collapse collapse">
-              <div class="accordion-body">No, This is not subscription based item.Pastry pudding cookie toffee bonbon jujubes jujubes powder topping. Jelly beans gummi bears sweet roll bonbon muffin liquorice. Wafer lollipop sesame snaps.</div>
-            </div>
-          </div>
-        </div>
+          </div>  
       </div>
       <div class="tab-pane fade" id="delivery" role="tabpanel">
         <div class="d-flex mb-3 gap-3">
