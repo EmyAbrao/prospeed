@@ -8,6 +8,7 @@ use App\Http\Controllers\CarController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SessionTypeController;
+use App\Http\Controllers\IntegrationController;
 
 
 /*
@@ -35,3 +36,5 @@ Route::get('eventos', [EventController::class, 'index']);
 Route::get('sessoes', [SessionController::class, 'index']);
 
 Route::get('tipo-sessoes', [SessionTypeController::class, 'index']);
+
+Route::post('integration', [IntegrationController::class, 'integration']);
