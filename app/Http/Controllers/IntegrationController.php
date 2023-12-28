@@ -29,18 +29,21 @@ class IntegrationController extends Controller
         $newPilot->phone = '(00) 90000-0000';
         $newPilot->usuario()->associate($newUser);
         $newPilot->save();
+        return $newUser;
     }
     public function saveNewCar($modelCar, $classCar){
         $newCar = new Car;
         $newCar->model = $modelCar;
         $newCar->class = $classCar;
         $newCar->save();
+        return $newCar;
     }
     
     public function saveNewRaceTrack($nameRaceTrack){
         $newRaceTrack = new RaceTrack;
         $newRaceTrack->name = $nameRaceTrack;
         $newRaceTrack->save();
+        return $newRaceTrack;
     }
     
 
@@ -54,7 +57,7 @@ class IntegrationController extends Controller
             $userPilot = User::where('email', $pilotEmail)->first();
             if ($userPilot == null){
                 //dd("piloto não encontrado");
-                $this->saveNewPilot($pilotEmail);
+                $userPilot = $this->saveNewPilot($pilotEmail);
             }
 
             foreach($input['sessoes'] as $sessao){
@@ -62,12 +65,13 @@ class IntegrationController extends Controller
                 $carClass = $sessao['classeCarro'];
                 $car = Car::where('model', $carModel)->where('class', $carClass)->first();
                 if ($car == null){
-                    $this->saveNewCar($carModel, $carClass);
+                    $car = $this->saveNewCar($carModel, $carClass);
+                    // dd($car);
                 }
                 $raceTrackName = $sessao['autodromo'];
                 $raceTrack = RaceTrack::where('name', $raceTrackName)->first();
                 if ($raceTrack == null){
-                    $this->saveNewRaceTrack($raceTrackName);
+                    $raceTrack = $this->saveNewRaceTrack($raceTrackName);
                 }
                 $event = EventRace::where('name', 'Prospeed 2024')->first();
                 $descriptionSessionType = $sessao['tipoSessao'];
@@ -75,18 +79,30 @@ class IntegrationController extends Controller
                 if ($sessionType == null){
                     return response()->json('Tipo de sessão não encontrada!');
                 }
-                // fazer as associações
-                // $sessionValid = new SessionRace;
-                // $sessionValid->pilot()->associate()
 
+                // fazer as associações
+                //dd($car);
+                $sessionValid = new SessionRace;
+                $sessionValid->pilot()->associate($userPilot->pilot);
+                $sessionValid->car()->associate($car);
+                $sessionValid->racetrack()->associate($raceTrack);
+                $sessionValid->event()->associate($event);
+                $sessionValid->sessionType()->associate($sessionType);
+
+                $sessionValid->simulator = $input['simulador'];
+                $sessionValid->total_laps = $sessao['totalVoltas'];
+                $sessionValid->date = $sessao['dataSessao'];
+                $sessionValid->save();
+                
             }
             
             DB::commit();
+            //dd('salvou');
             return response()->json($userPilot, 200);
 
 
         } catch (\Throwable $th) {
-            //throw $th;
+            throw $th;
         }
         
         
