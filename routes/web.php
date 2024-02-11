@@ -8,6 +8,8 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SessionTypeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SimulatorController;
+
 
 
 
@@ -55,6 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::get('prospeed/sessoes/{id}/excluir', [SessionController::class, 'destroy'])->name('excluir.sessao');
     Route::get('prospeed/tipo-sessoes/{id}/excluir', [SessionTypeController::class, 'destroy'])->name('exluir.modalidade');
     Route::get('prospeed/carros/{id}/detalhes', [CarController::class, 'show'])->name('carros.detalhes');
+    Route::get('prospeed/simuladores', [SimulatorController::class, 'simuladoresAgora'])->name('jogadores.online');
 });
 
 require __DIR__.'/auth.php';
