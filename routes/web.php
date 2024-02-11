@@ -9,6 +9,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SessionTypeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SimulatorController;
+use App\Http\Controllers\PayHistoryController;
 
 
 
@@ -58,6 +59,7 @@ Route::middleware('auth')->group(function () {
     Route::get('prospeed/tipo-sessoes/{id}/excluir', [SessionTypeController::class, 'destroy'])->name('exluir.modalidade');
     Route::get('prospeed/carros/{id}/detalhes', [CarController::class, 'show'])->name('carros.detalhes');
     Route::get('prospeed/simuladores', [SimulatorController::class, 'simuladoresAgora'])->name('jogadores.online');
+    Route::get('prospeed/compras', [PayHistoryController::class, 'historicoCompras'])->name('historico.de.compras');
 });
 
 require __DIR__.'/auth.php';
